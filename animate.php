@@ -32,9 +32,9 @@
 		 alumno: <?php echo "$i"; ?><input type="text" name ="nota<?php echo "$i"; ?>">
 		 							<input type="text" name ="nota9<?php echo "$i"; ?>"><br>
 
-<?php } }?>
+<?php } ?>
 <input type="submit" name ="calcular" value="calcular" ><br>
-
+<?php $numero2 = $numero; } ?>
 <?php 
 
 
@@ -44,19 +44,28 @@
 		
 	
 		
+		$suma = 0;
+		$prom = 0;
+		$promI= 0;
 	
 	for ($i=1; $i <= $numero2 ; $i++) { 
+
 
 		$nota1 = $_POST["nota$i"];
 		$nota2 = $_POST["nota9$i"];
 
-		$suma = $nota1 + $nota2;
+		$promI = ($nota1 + $nota2)/2;
 
-		echo "alumno:'$i'  la suma es : '$suma' <br>";
-		$suma = 0;
+		$suma = $suma + $promI;
+
+
+		$prom = $suma/$numero2;
+
+		echo "alumno: $i  el promedio es  : $promI <br>";
+		$promI = 0;
 	}
 
- 
+ echo "Promedio de todos: $prom";
  }
 	 ?>
 	</form>
